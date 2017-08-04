@@ -4,7 +4,7 @@ import json #For parsing API response
 def GetUserScores(name, mode=0):
     print('Retrieving scores for %s' % name)
     APIKey = ReadFile('API Key.txt')
-    if APIKey.remove(' ') == '':
+    if APIKey == '' or APIKey == ' ':
         print('No API key has been provided.')
         quit()
     response = urlopen('https://osu.ppy.sh/api/get_user_best?k=%s&m=%s&u=%s&limit=100' % (APIKey, mode, name))
